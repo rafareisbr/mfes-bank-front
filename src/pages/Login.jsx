@@ -1,7 +1,8 @@
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
-import { http } from "../config/axios";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const validationSchema = yup.object({
   username: yup.string("Enter your username").required("Username is required"),
@@ -12,14 +13,12 @@ const validationSchema = yup.object({
 });
 
 export function Login() {
-  const makeLogin = async ({ username, password }) => {
-    const response = await http.post("/login/", { username, password });
-    localStorage.setItem({ token: response });
-  };
+  const { token, onLogin } = useContext(AuthContext);
 
   return (
     <div>
       <h3>Login</h3>
+      <div>{JSON.stringify(token)}</div>
       <Formik
         initialValues={{
           username: "",
@@ -27,8 +26,7 @@ export function Login() {
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          alert(JSON.stringify(values));
-          makeLogin(values);
+          onLogin(values);
         }}
       >
         {({ errors, touched }) => (

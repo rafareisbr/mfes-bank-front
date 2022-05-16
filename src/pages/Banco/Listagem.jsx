@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { http } from "../../config/axios";
 
 export default function Listagem() {
@@ -31,6 +32,7 @@ export default function Listagem() {
   return (
     <div>
       <h1>{title}</h1>
+      <Link to="/bancos/novo">Novo</Link>
 
       <table>
         <thead>
