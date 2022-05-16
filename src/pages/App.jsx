@@ -17,31 +17,29 @@ export default function App() {
 
   return (
     <Context.Provider value={[counter, setCounter]}>
-      <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            {/** bancos */}
-            <Route path="/bancos" element={<BancoListagem />} />
-            <Route path="/bancos/:bancoId" element={<BancoDetalhes />} />
-            <Route
-              path="/bancos/:bancoId/agencias/:agenciaId"
-              element={<AgenciaDetalhes />}
-            />
-            <Route
-              path="/bancos/novo"
-              element={
-                <ProtectedRoute>
-                  <BancoDetalhes />
-                </ProtectedRoute>
-              }
-            />
-            {/** end bancos */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          {/** bancos */}
+          <Route path="/bancos" element={<BancoListagem />} />
+          <Route path="/bancos/:bancoId" element={<BancoDetalhes />} />
+          <Route
+            path="/bancos/:bancoId/agencias/:agenciaId"
+            element={<AgenciaDetalhes />}
+          />
+          <Route
+            path="/bancos/novo"
+            element={
+              <ProtectedRoute>
+                <BancoDetalhes />
+              </ProtectedRoute>
+            }
+          />
+          {/** end bancos */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
     </Context.Provider>
   );
 }

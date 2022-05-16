@@ -2,12 +2,12 @@ Navegacao OK
     Obter parametro da rota
     Rota generica
 
-Fazer requisicoes GET POST com sucesso
+Fazer requisicoes GET POST com sucesso OK
     Listar e Criar
 
-Login
+Login OK
     Recebe token
-    Salva no LocalStorage
+    Salva no LocalStorage - melhorar
     Cria contexto de autenticacao
     Cria mecanismo para bloquear rotas nao autenticadas
     Sobe no Context de Autenticacao da Aplicacao
@@ -24,6 +24,6 @@ Bancos
 
     Agencias
         Listagem
-    
+
         Contas
             Listagem

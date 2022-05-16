@@ -1,8 +1,9 @@
 import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
+import { useLocation, useRoutes } from "react-router-dom";
 
 const validationSchema = yup.object({
   username: yup.string("Enter your username").required("Username is required"),
@@ -14,6 +15,13 @@ const validationSchema = yup.object({
 
 export function Login() {
   const { token, onLogin } = useContext(AuthContext);
+  const { state } = useLocation();
+
+  useEffect(() => {
+    if (token) {
+      state.pop();
+    }
+  }, []);
 
   return (
     <div>
