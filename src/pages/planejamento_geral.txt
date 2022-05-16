@@ -1,0 +1,29 @@
+Navegacao OK
+    Obter parametro da rota
+    Rota generica
+
+Fazer requisicoes GET POST com sucesso
+    Listar e Criar
+
+Login
+    Recebe token
+    Salva no LocalStorage
+    Cria contexto de autenticacao
+    Cria mecanismo para bloquear rotas nao autenticadas
+    Sobe no Context de Autenticacao da Aplicacao
+
+Controlar Autenticacao
+    Somente rotas de escrita são protegidas
+
+Bancos
+    Listagem
+        Criacao
+    Detalhe
+        Edicao
+        Delecao
+
+    Agencias
+        Listagem
+    
+        Contas
+            Listagem

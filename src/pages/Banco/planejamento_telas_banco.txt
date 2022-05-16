@@ -1,0 +1,34 @@
+Listagem
+
+    Titulo
+
+        Tabela
+            Cabecalho
+                Botao Criar
+            
+            Item
+                Botao Detalhes
+
+Detalhes
+
+    Identificador no Titulo
+
+    Dados listados para exibicao
+
+    Botao Editar
+    Botao Deletar
+
+    Secao Agencias
+
+        Tabela
+            Cabecalho
+                Botao Criar
+
+            Item
+                Botao Detalhes
+
+Detalhes Agencia
+
+    Identificador no Titulo
+
+    Dados listados para exibicao
