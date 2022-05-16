@@ -10,6 +10,8 @@ import BancoListagem from "./pages/Banco/Listagem";
 import BancoDetalhes from "./pages/Banco/Detalhes";
 import AgenciaDetalhes from "./pages/Agencia/Detalhes";
 import { NotFound } from "./pages/NotFound";
+import { Login } from "./pages/Login";
+import AuthContext from "./contexts/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +24,7 @@ root.render(
           path="/bancos/:bancoId/agencias/:agenciaId"
           element={<AgenciaDetalhes />}
         />
+        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
