@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../../config/axios";
 
+import AgenciasListagem from "../Agencia/Listagem";
+
 export default function Listagem() {
   const params = useParams();
   const [banco, setBanco] = useState(null);
@@ -26,6 +28,14 @@ export default function Listagem() {
         <div>
           <div>{banco.numero}</div>
           <div>{banco.nome}</div>
+
+          <br />
+
+          <div>
+            <AgenciasListagem />
+          </div>
+
+          <br />
         </div>
       ) : !errors ? (
         <div>Carregando...</div>

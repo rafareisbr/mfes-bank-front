@@ -2,40 +2,31 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "../../config/axios";
 
-import ContasListagem from "../Contas/Listagem";
-
 function Detalhes() {
   const params = useParams();
-  const [agencia, setAgencia] = useState(null);
+  const [conta, setConta] = useState(null);
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
     async function loadData() {
       try {
         const response = await axios.get(
-          `/bancos/${params.bancoId}/agencias/${params.agenciaId}/`
+          `/bancos/${params.bancoId}/agencias/${params.agenciaId}/contas/${params.contaId}/`
         );
-        setAgencia(response.data);
+        setConta(response.data);
       } catch (errors) {
         console.log(errors);
       }
     }
     loadData();
-  }, [agencia, params.bancoId, params.agenciaId]);
+  }, [conta, params.bancoId, params.agenciaId, params.contaId]);
 
   return (
     <div>
-      <h3>Detalhes da Agencia</h3>
-      {agencia ? (
+      <h3>Detalhes da Conta</h3>
+      {conta ? (
         <div>
-          <div>Numero: {agencia.numero}</div>
-          <div>Contas criadas: {agencia.contas_registradas}</div>
-
-          <br />
-
-          <div>
-            <ContasListagem />
-          </div>
+          <div>Numero: {conta.numero}</div>
 
           <br />
 
@@ -50,7 +41,9 @@ function Detalhes() {
       ) : (
         <div>{JSON.stringify(errors)}</div>
       )}
-      <Link to={`/bancos/${params.bancoId}/`}>Voltar</Link>
+      <Link to={`/bancos/${params.bancoId}/agencias/${params.agenciaId}/`}>
+        Voltar
+      </Link>
     </div>
   );
 }
