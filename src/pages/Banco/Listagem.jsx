@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { http } from "../../config/axios";
+import axios from "../../config/axios";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 export default function Listagem() {
@@ -16,11 +16,7 @@ export default function Listagem() {
       setLoading(true);
 
       try {
-        const response = await http.get("/bancos", {
-          headers: {
-            Authorization: `Token a386c1b8110bc9320535e362477bb9e874086af2`,
-          },
-        });
+        const response = await axios.get("/bancos");
         setBancos(response.data);
       } catch (err) {
         setError(err);
@@ -57,6 +53,9 @@ export default function Listagem() {
                 <tr key={banco.numero}>
                   <td>{banco.numero}</td>
                   <td>{banco.nome}</td>
+                  <td>
+                    <Link to={`/bancos/${banco.numero}/`}>Detalhes</Link>
+                  </td>
                 </tr>
               );
             })

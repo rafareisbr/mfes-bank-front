@@ -32,7 +32,9 @@ export function Login() {
         {({ errors, touched }) => (
           <Form>
             <Field name="username" placeholder="Username" type="text" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            {errors.username && touched.username ? (
+              <div>{errors.username}</div>
+            ) : null}
             <Field name="password" placeholder="Password" type="password" />
             {errors.password && touched.password ? (
               <div>{errors.password}</div>

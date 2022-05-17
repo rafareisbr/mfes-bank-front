@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const http = axios.create({
+export default axios.create({
   baseURL: "http://localhost:8000/api/v2/",
 });
