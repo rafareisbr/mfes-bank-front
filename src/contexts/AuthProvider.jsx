@@ -14,8 +14,9 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await http.post("/login/", { username, password });
       setToken(response.data.token);
-      localStorage.clear();
-      setToken("token", response.data.token);
+      http.defaults.headers.common["Authorization"] = `Token ${token}`;
+      localStorage.setItem("token", response.data.token);
+
       const origin = location.state.from.pathname || "/";
       navigate(origin);
     } catch (error) {

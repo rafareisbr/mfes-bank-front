@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { http } from "../../config/axios";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 export default function Listagem() {
   const title = "Bancos";
@@ -8,6 +9,7 @@ export default function Listagem() {
   const [bancos, setBancos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
     const loadBankData = async () => {
@@ -16,7 +18,7 @@ export default function Listagem() {
       try {
         const response = await http.get("/bancos", {
           headers: {
-            Authorization: "Token a386c1b8110bc9320535e362477bb9e874086af2",
+            Authorization: `Token a386c1b8110bc9320535e362477bb9e874086af2`,
           },
         });
         setBancos(response.data);
@@ -33,7 +35,7 @@ export default function Listagem() {
     <div>
       <h1>{title}</h1>
       <Link to="/bancos/novo">Novo</Link>
-
+      <div>{token}</div>
       <table>
         <thead>
           <tr>
