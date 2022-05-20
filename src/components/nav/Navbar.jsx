@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "contexts/AuthProvider";
 
 function Navbar() {
-  const { isAuthenticated, token, onLogout } = useContext(AuthContext);
+  const { isAuthenticated, onLogout } = useContext(AuthContext);
   return (
     <div
       style={{
