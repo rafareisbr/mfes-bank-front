@@ -28,8 +28,11 @@ function Detalhes() {
       <h3>Detalhes da Agencia</h3>
       {agencia ? (
         <div>
-          <div>Numero: {agencia.numero}</div>
-          <div>Contas criadas: {agencia.contas_registradas}</div>
+          {Object.entries(agencia).map(([key, value]) => (
+            <div key={key}>
+              {key}: {value}
+            </div>
+          ))}
 
           <br />
 
@@ -46,7 +49,7 @@ function Detalhes() {
           </Link>
         </div>
       ) : !errors ? (
-        <div>Carregando...</div>
+        <div>Sem resultados</div>
       ) : (
         <div>{JSON.stringify(errors)}</div>
       )}

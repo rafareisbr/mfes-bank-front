@@ -22,21 +22,22 @@ export default function Criacao() {
       <br />
       <Formik
         initialValues={{
-          nome: "",
           numero: "",
         }}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          async function postBankData() {
+          async function sendData() {
             try {
-              const response = await axios.post(`/bancos/`, values);
-              navigate(`/bancos/`);
+              const response = await axios.post(
+                `/bancos/${params.bancoId}/agencias/`,
+                values
+              );
+              navigate(`/bancos/${params.bancoId}/agencias/`);
             } catch (errors) {
               setErrors(errors);
             }
           }
-
-          postBankData();
+          sendData();
         }}
       >
         {({ errors, touched }) => (
@@ -45,8 +46,6 @@ export default function Criacao() {
             {errors.numero && touched.numero ? (
               <div>{errors.numero}</div>
             ) : null}
-            <Field name="nome" placeholder="Nome" type="text" />
-            {errors.nome && touched.nome ? <div>{errors.nome}</div> : null}
             <button type="submit">Criar</button>
           </Form>
         )}

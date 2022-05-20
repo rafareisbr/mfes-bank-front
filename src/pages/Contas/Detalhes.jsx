@@ -26,7 +26,19 @@ function Detalhes() {
       <h3>Detalhes da Conta</h3>
       {conta ? (
         <div>
-          <div>Numero: {conta.numero}</div>
+          {Object.entries(conta).map(([key, value]) => {
+            return typeof value === "object" ? (
+              Object.entries(conta).map(([key, value]) => {
+                <div key={key}>
+                  {key}: {value}
+                </div>;
+              })
+            ) : (
+              <div key={key}>
+                {key}: {value}
+              </div>
+            );
+          })}
 
           <br />
 

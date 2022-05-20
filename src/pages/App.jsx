@@ -2,8 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./Home";
-import { Login } from "./Login";
-import { NotFound } from "./NotFound";
+import Login from "./Auth/Login";
+import Register from "./Auth/Register";
+import NotFound from "./NotFound";
 
 import Context from "../contexts/Context";
 import AuthProvider from "../contexts/AuthProvider";
@@ -18,6 +19,7 @@ import AgenciaCriacao from "./Agencia/Criacao";
 import AgenciaDetalhes from "./Agencia/Detalhes";
 
 import ContaDetalhes from "./Contas/Detalhes";
+import AgenciaEdicao from "./Agencia/Edicao";
 
 export default function App() {
   const [counter, setCounter] = useState(0);
@@ -49,7 +51,19 @@ export default function App() {
           {/** agencias */}
           <Route
             path="/bancos/:bancoId/agencias/novo/"
-            element={<AgenciaCriacao />}
+            element={
+              <ProtectedRoute>
+                <AgenciaCriacao />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/bancos/:bancoId/agencias/:agenciaId/editar/"
+            element={
+              <ProtectedRoute>
+                <AgenciaEdicao />
+              </ProtectedRoute>
+            }
           />
           <Route
             path="/bancos/:bancoId/agencias/:agenciaId/"
@@ -59,7 +73,11 @@ export default function App() {
           {/** contas */}
           <Route
             path="/bancos/:bancoId/agencias/:agenciaId/contas/novo/"
-            element={<AgenciaCriacao />}
+            element={
+              <ProtectedRoute>
+                <AgenciaCriacao />
+              </ProtectedRoute>
+            }
           />
           <Route
             path="/bancos/:bancoId/agencias/:agenciaId/contas/:contaId/"
@@ -67,9 +85,11 @@ export default function App() {
           />
           {/** end contas */}
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <div id="portal"></div>
       </AuthProvider>
     </Context.Provider>
   );

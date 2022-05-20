@@ -24,24 +24,30 @@ export default function Listagem() {
       <h4>Listagem de Agencias</h4>
       <br />
       <table>
-        {!agencias ? (
-          <div>Carregando...</div>
-        ) : agencias.length > 0 ? (
-          agencias.map((agencia) => (
+        <tbody>
+          {!agencias ? (
             <tr>
-              <td>{agencia.numero}</td>
-              <td>
-                <Link
-                  to={`/bancos/${params.bancoId}/agencias/${agencia.numero}/`}
-                >
-                  Detalhes
-                </Link>
-              </td>
+              <td>Carregando...</td>
             </tr>
-          ))
-        ) : (
-          <div>Sem resultados</div>
-        )}
+          ) : agencias.length > 0 ? (
+            agencias.map((agencia) => (
+              <tr key={agencia.numero}>
+                <td>{agencia.numero}</td>
+                <td>
+                  <Link
+                    to={`/bancos/${params.bancoId}/agencias/${agencia.numero}/`}
+                  >
+                    Detalhes
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td>Sem resultados</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </div>
   );

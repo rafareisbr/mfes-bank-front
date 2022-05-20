@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function NotFound() {
+export default function index() {
   return (
     <div>
       <h2>Ops. Rota desconhecida.</h2>

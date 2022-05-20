@@ -26,8 +26,11 @@ export default function Listagem() {
       <h3>Detalhes</h3>
       {banco ? (
         <div>
-          <div>{banco.numero}</div>
-          <div>{banco.nome}</div>
+          {Object.entries(banco).map(([key, value]) => (
+            <div key={key}>
+              {key}: {value}
+            </div>
+          ))}
 
           <br />
 

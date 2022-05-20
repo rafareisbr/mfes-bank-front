@@ -25,26 +25,32 @@ export default function ContasListagem() {
   return (
     <div>
       Listagem de Contas
-      <div></div>
       <table>
-        {!contas ? (
-          <div>Carregando...</div>
-        ) : contas.length > 0 ? (
-          contas.map((conta) => (
+        <tbody>
+          {!contas ? (
             <tr>
-              <td>{conta.numero}</td>
-              <td>
-                <Link
-                  to={`/bancos/${params.bancoId}/agencias/${params.agenciaId}/contas/${conta.numero}/`}
-                >
-                  Detalhes
-                </Link>
-              </td>
+              <td>Carregando...</td>
             </tr>
-          ))
-        ) : (
-          <div>Sem resultados</div>
-        )}
+          ) : contas.length > 0 ? (
+            contas.map((conta) => (
+              <tr key={conta.numero}>
+                <td>{conta.numero}</td>
+                <td>{conta?.titular.cpf}</td>
+                <td>
+                  <Link
+                    to={`/bancos/${params.bancoId}/agencias/${params.agenciaId}/contas/${conta.numero}/`}
+                  >
+                    Detalhes
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td>Sem resultados</td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </div>
   );

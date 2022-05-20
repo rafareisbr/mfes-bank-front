@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
 import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthProvider";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const validationSchema = yup.object({
   username: yup.string("Enter your username").required("Username is required"),
@@ -12,7 +12,7 @@ const validationSchema = yup.object({
     .required("Password is required"),
 });
 
-export function Login() {
+export default function Register() {
   const { token, onLogin } = useContext(AuthContext);
 
   return (
@@ -21,7 +21,10 @@ export function Login() {
       <div>{JSON.stringify(token)}</div>
       <Formik
         initialValues={{
+          first_name: "",
+          last_name: "",
           username: "",
+          email: "",
           password: "",
         }}
         validationSchema={validationSchema}
