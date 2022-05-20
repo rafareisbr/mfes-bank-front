@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "../../config/axios";
-import { AuthContext } from "../../contexts/AuthProvider";
+import axios from "config/axios";
+import { AuthContext } from "contexts/AuthProvider";
 
 export default function Listagem() {
   const title = "Bancos";

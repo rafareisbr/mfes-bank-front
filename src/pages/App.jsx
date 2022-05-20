@@ -1,26 +1,26 @@
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 
-import Home from "./Home";
-import Login from "./Auth/Login";
-import Register from "./Auth/Register";
-import NotFound from "./NotFound";
+import Home from "pages/Home";
+import Login from "pages/Auth/Login";
+import Register from "pages/Auth/Register";
+import NotFound from "pages/NotFound";
 
-import Context from "../contexts/Context";
-import AuthProvider from "../contexts/AuthProvider";
-import ProtectedRoute from "../components/auth/ProtectedRoute";
+import Context from "contexts/Context";
+import AuthProvider from "contexts/AuthProvider";
+import ProtectedRoute from "components/auth/ProtectedRoute";
 
-import BancoListagem from "./Banco/Listagem";
-import BancoDetalhes from "./Banco/Detalhes";
-import BancoEdicao from "./Banco/Edicao";
-import BancoCriacao from "./Banco/Criacao";
+import BancoListagem from "pages/Banco/Listagem";
+import BancoDetalhes from "pages/Banco/Detalhes";
+import BancoEdicao from "pages/Banco/Edicao";
+import BancoCriacao from "pages/Banco/Criacao";
 
-import AgenciaCriacao from "./Agencia/Criacao";
-import AgenciaDetalhes from "./Agencia/Detalhes";
+import AgenciaCriacao from "pages/Banco/Agencia/Criacao";
+import AgenciaDetalhes from "pages/Banco/Agencia/Detalhes";
 
-import ContaDetalhes from "./Contas/Detalhes";
-import AgenciaEdicao from "./Agencia/Edicao";
-import BancoIndex from "./Banco/Index";
+import ContaDetalhes from "pages/Banco/Contas/Detalhes";
+import AgenciaEdicao from "pages/Banco/Agencia/Edicao";
+import BancoIndex from "pages/Banco/Index";
 
 export default function App() {
   const [counter, setCounter] = useState(0);

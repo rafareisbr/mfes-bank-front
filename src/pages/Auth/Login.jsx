@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthProvider";
+import { AuthContext } from "contexts/AuthProvider";
 
 const validationSchema = yup.object({
   username: yup.string("Enter your username").required("Username is required"),

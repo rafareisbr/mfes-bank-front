@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "../../config/axios";
+import axios from "config/axios";
 
 export default function Listagem() {
   const params = useParams();

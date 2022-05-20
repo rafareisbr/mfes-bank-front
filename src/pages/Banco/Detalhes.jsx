@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "../../config/axios";
+import axios from "config/axios";
 
-import AgenciasListagem from "../Agencia/Listagem";
+import AgenciasListagem from "../Banco/Agencia/Listagem";
 
 export default function Listagem() {
   const params = useParams();

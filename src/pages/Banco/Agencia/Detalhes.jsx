@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "../../config/axios";
+import axios from "config/axios";
 
-import ContasListagem from "../Contas/Listagem";
+import ContasListagem from "pages/Banco/Contas/Listagem";
 
 function Detalhes() {
   const params = useParams();

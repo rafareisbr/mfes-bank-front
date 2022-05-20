@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { Field, Form, Formik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "../../config/axios";
+import axios from "config/axios";
 
 const validationSchema = yup.object({
   nome: yup.string("Enter the bank name").required("Bank name is required"),
