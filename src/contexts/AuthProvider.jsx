@@ -31,6 +31,21 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const isAuthenticated = () => {
+    if (token) {
+      return true;
+    }
+
+    const localStorageResult = localStorage.getItem("token");
+
+    if (!localStorageResult) {
+      return false;
+    }
+
+    setToken(localStorageResult);
+    return true;
+  };
+
   const onLogout = () => {
     setToken(null);
     localStorage.clear();
@@ -38,6 +53,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const value = {
+    isAuthenticated,
     token,
     onLogin,
     onLogout,
