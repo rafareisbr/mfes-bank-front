@@ -16,7 +16,7 @@ export default function Listagem() {
       }
     }
     loadData();
-  }, [agencias, params.bancoId]);
+  }, [params.bancoId]);
 
   return (
     <div>

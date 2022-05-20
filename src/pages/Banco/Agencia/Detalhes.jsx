@@ -21,7 +21,7 @@ function Detalhes() {
       }
     }
     loadData();
-  }, [agencia, params.bancoId, params.agenciaId]);
+  }, [params.bancoId, params.agenciaId]);
 
   return (
     <div>

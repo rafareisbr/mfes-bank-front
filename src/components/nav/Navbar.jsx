@@ -15,7 +15,7 @@ function Navbar() {
     >
       <div>Navbar</div>
       <>
-        {isAuthenticated ? (
+        {isAuthenticated() ? (
           <button onClick={() => onLogout()}>Sair</button>
         ) : (
           <Link to="/login">Entrar</Link>

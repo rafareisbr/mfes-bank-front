@@ -19,7 +19,7 @@ function Detalhes() {
       }
     }
     loadData();
-  }, [conta, params.bancoId, params.agenciaId, params.contaId]);
+  }, [params.bancoId, params.agenciaId, params.contaId]);
 
   return (
     <div>
