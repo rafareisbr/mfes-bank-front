@@ -19,7 +19,12 @@ const AuthProvider = ({ children }) => {
       ] = `Token ${response.data.token}`;
       localStorage.setItem("token", response.data.token);
 
-      const origin = location.state.from.pathname || "/";
+      let origin = "/";
+
+      if (location.state && location.state.from) {
+        origin = location.state.from.pathname;
+      }
+
       navigate(origin);
     } catch (error) {
       console.log(error);

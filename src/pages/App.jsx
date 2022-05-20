@@ -20,6 +20,7 @@ import AgenciaDetalhes from "./Agencia/Detalhes";
 
 import ContaDetalhes from "./Contas/Detalhes";
 import AgenciaEdicao from "./Agencia/Edicao";
+import BancoIndex from "./Banco/Index";
 
 export default function App() {
   const [counter, setCounter] = useState(0);
@@ -28,62 +29,64 @@ export default function App() {
     <Context.Provider value={[counter, setCounter]}>
       <AuthProvider>
         <Routes>
-          {/** bancos */}
-          <Route path="/bancos/" element={<BancoListagem />} />
-          <Route path="/bancos/:bancoId/" element={<BancoDetalhes />} />
-          <Route
-            path="/bancos/novo/"
-            element={
-              <ProtectedRoute>
-                <BancoCriacao />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/bancos/:bancoId/editar/"
-            element={
-              <ProtectedRoute>
-                <BancoEdicao />
-              </ProtectedRoute>
-            }
-          />
-          {/** end bancos */}
-          {/** agencias */}
-          <Route
-            path="/bancos/:bancoId/agencias/novo/"
-            element={
-              <ProtectedRoute>
-                <AgenciaCriacao />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/bancos/:bancoId/agencias/:agenciaId/editar/"
-            element={
-              <ProtectedRoute>
-                <AgenciaEdicao />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/bancos/:bancoId/agencias/:agenciaId/"
-            element={<AgenciaDetalhes />}
-          />
-          {/** end agencias */}
-          {/** contas */}
-          <Route
-            path="/bancos/:bancoId/agencias/:agenciaId/contas/novo/"
-            element={
-              <ProtectedRoute>
-                <AgenciaCriacao />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/bancos/:bancoId/agencias/:agenciaId/contas/:contaId/"
-            element={<ContaDetalhes />}
-          />
-          {/** end contas */}
+          <Route path="/bancos" element={<BancoIndex />}>
+            {/** bancos */}
+            <Route path="" element={<BancoListagem />} />
+            <Route path=":bancoId/" element={<BancoDetalhes />} />
+            <Route
+              path="novo/"
+              element={
+                <ProtectedRoute>
+                  <BancoCriacao />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":bancoId/editar/"
+              element={
+                <ProtectedRoute>
+                  <BancoEdicao />
+                </ProtectedRoute>
+              }
+            />
+            {/** end bancos */}
+            {/** agencias */}
+            <Route
+              path=":bancoId/agencias/novo/"
+              element={
+                <ProtectedRoute>
+                  <AgenciaCriacao />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":bancoId/agencias/:agenciaId/editar/"
+              element={
+                <ProtectedRoute>
+                  <AgenciaEdicao />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":bancoId/agencias/:agenciaId/"
+              element={<AgenciaDetalhes />}
+            />
+            {/** end agencias */}
+            {/** contas */}
+            <Route
+              path=":bancoId/agencias/:agenciaId/contas/novo/"
+              element={
+                <ProtectedRoute>
+                  <AgenciaCriacao />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":bancoId/agencias/:agenciaId/contas/:contaId/"
+              element={<ContaDetalhes />}
+            />
+            {/** end contas */}
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
