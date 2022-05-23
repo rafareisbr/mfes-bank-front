@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "config/axios";
+import Sacar from "components/conta/Sacar";
+import Depositar from "components/conta/Depositar";
+import Transferir from "components/conta/Transferir";
 
 function Detalhes() {
   const params = useParams();
@@ -39,6 +42,15 @@ function Detalhes() {
               </div>
             );
           })}
+
+          <br />
+
+          <div>
+            <h3>Operações</h3>
+            <Sacar />
+            <Depositar />
+            <Transferir />
+          </div>
 
           <br />
 

@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const isAuthenticated = () => {
+  function isAuthenticated() {
     if (token) {
       return true;
     }
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
 
     setToken(localStorageResult);
     return true;
-  };
+  }
 
   const onLogout = () => {
     setToken(null);
