@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import { useState } from "react";
 
-import Home from "pages/Home";
 import Login from "pages/Auth/Login";
 import Register from "pages/Auth/Register";
 import NotFound from "pages/NotFound";
@@ -89,7 +88,7 @@ export default function App() {
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/bancos" />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <div id="portal"></div>
